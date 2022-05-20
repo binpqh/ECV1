@@ -8,17 +8,17 @@ namespace Data.Tables
     {
         public Weekday()
         {
-            Classes = new HashSet<Class>();
+            IdClasses = new HashSet<Class>();
         }
 
         public int Id { get; set; }
         public string? Name { get; set; }
 
-        public virtual ICollection<Class> Classes { get; set; } // Classday
+        public virtual ICollection<Class> IdClasses { get; set; }
         public static void Seed(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Weekday>().HasData(
-                
+
                 new Weekday
                 {
                     Id = 1,
@@ -26,18 +26,18 @@ namespace Data.Tables
                 },
                 new Weekday
                 {
-                     Id = 2,
-                     Name = "Thứ hai"
+                    Id = 2,
+                    Name = "Thứ hai"
                 },
                  new Weekday
                  {
-                      Id = 3,
-                      Name = "Thứ ba"
+                     Id = 3,
+                     Name = "Thứ ba"
                  },
                   new Weekday
                   {
-                       Id = 4,
-                       Name = "Thứ tư"
+                      Id = 4,
+                      Name = "Thứ tư"
                   },
                     new Weekday
                     {

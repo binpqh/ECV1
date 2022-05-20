@@ -11,13 +11,11 @@ namespace Data.Tables
         }
 
         public int Id { get; set; }
-        public string? CourseName { get; set; }
-        public DateTime? StartDay { get; set; }
-        public DateTime? EndDay { get; set; }
-        public decimal? Cost { get; set; }
+        public string? Coursename { get; set; }
+        public DateTime? DayStart { get; set; }
+        public DateTime? DayEnd { get; set; }
+        public decimal? Price { get; set; }
         public string? Level { get; set; }
-        public string? Description { get; set; }
-        public byte[]? Image { get; set; }
 
         public virtual ICollection<Class> Classes { get; set; }
     }

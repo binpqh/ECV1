@@ -6,24 +6,18 @@ namespace Data.Tables
 {
     public partial class Student
     {
-        public Student()
-        {
-            Payments = new HashSet<Payment>();
-        }
-
         public int Id { get; set; }
         public string? Name { get; set; }
         public int? Age { get; set; }
         public DateTime? Birthday { get; set; }
         public string? Address { get; set; }
         public string? Email { get; set; }
+        public int? Classkey { get; set; }
+        public int? IdAccount { get; set; }
         public string? Phone { get; set; }
-        public int? ClassKey { get; set; }
-        public int IdAccount { get; set; }
 
-        public virtual Class? ClassKeyNavigation { get; set; }
-        public virtual Account IdAccountNavigation { get; set; } = null!;
-        public virtual ICollection<Payment> Payments { get; set; }
+        public virtual Class? ClasskeyNavigation { get; set; }
+        public virtual Account? IdAccountNavigation { get; set; }
 
         public static void Seed(ModelBuilder modelBuilder)
         {
@@ -38,7 +32,7 @@ namespace Data.Tables
                     Email = "hocvien1@gmail.com",
                     Phone = "0961444651",
                     IdAccount = 4,
-                    ClassKey = null
+                    Classkey = null
                 }
                 );
         }

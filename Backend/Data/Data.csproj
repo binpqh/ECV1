@@ -20,6 +20,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Tables\" />
     <Folder Include="Types\" />
   </ItemGroup>
 

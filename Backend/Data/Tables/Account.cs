@@ -1,6 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using System;
-using System.Collections.Generic;
+using Data.Defined.Enum;
 
 namespace Data.Tables
 {
@@ -16,13 +15,11 @@ namespace Data.Tables
         public int Id { get; set; }
         public string? Uid { get; set; }
         public string? Password { get; set; }
-        public int IdRole { get; set; }
+        public RoleEnum Role { get; set; }
 
-        public virtual Role IdRoleNavigation { get; set; } = null!;
         public virtual ICollection<Manager> Managers { get; set; }
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
-
         public static void Seed(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Account>().HasData(
@@ -31,28 +28,28 @@ namespace Data.Tables
                     Id = 1,
                     Uid = "admin",
                     Password = "admin1",
-                    IdRole = 1
+                    Role = RoleEnum.Admin
                 },
                 new Account
                 {
                     Id = 2,
                     Uid = "manager",
                     Password = "manager1",
-                    IdRole = 2
+                    Role = RoleEnum.Manager
                 },
                 new Account
                 {
                     Id = 3,
                     Uid = "teacher1",
                     Password = "teacher1",
-                    IdRole = 3
+                    Role = RoleEnum.Teacher
                 },
                 new Account
                 {
                     Id = 4,
                     Uid = "student",
                     Password = "student1",
-                    IdRole = 4
+                    Role = RoleEnum.Student
                 }
                 );
         }

@@ -12,12 +12,12 @@ namespace Data.Tables
         public DateTime? Birthday { get; set; }
         public string? Address { get; set; }
         public string? Email { get; set; }
-        public string? Phone { get; set; }
         public int? Classkey { get; set; }
-        public int IdAccount { get; set; }
+        public int? IdAccount { get; set; }
+        public string? Phone { get; set; }
 
         public virtual Class? ClasskeyNavigation { get; set; }
-        public virtual Account IdAccountNavigation { get; set; } = null!;
+        public virtual Account? IdAccountNavigation { get; set; }
 
         public static void Seed(ModelBuilder modelBuilder)
         {
