@@ -29,31 +29,31 @@ namespace Data.Tables
                     Id = 2,
                     Name = "Thứ hai"
                 },
-                 new Weekday
-                 {
-                     Id = 3,
-                     Name = "Thứ ba"
-                 },
-                  new Weekday
-                  {
-                      Id = 4,
-                      Name = "Thứ tư"
-                  },
-                    new Weekday
-                    {
-                        Id = 5,
-                        Name = "Thứ năm"
-                    },
-                     new Weekday
-                     {
-                         Id = 6,
-                         Name = "Thứ sáu"
-                     },
-                      new Weekday
-                      {
-                          Id = 7,
-                          Name = "Thứ bảy"
-                      }
+                new Weekday
+                {
+                    Id = 3,
+                    Name = "Thứ ba"
+                },
+                new Weekday
+                {
+                    Id = 4,
+                    Name = "Thứ tư"
+                },
+                new Weekday
+                {
+                    Id = 5,
+                     Name = "Thứ năm"
+                },
+                new Weekday
+                {
+                    Id = 6,
+                    Name = "Thứ sáu"
+                },
+                new Weekday
+                {
+                    Id = 7,
+                    Name = "Thứ bảy"
+                }
                 );
         }
     }
