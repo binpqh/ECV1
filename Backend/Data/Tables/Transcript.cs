@@ -12,6 +12,7 @@ namespace Data.Tables
         public int? IdClass { get; set; }
         public int? IdPoint { get; set; }
         public bool? StatusPay { get; set; }
+        public int Status { get; set; }
 
         public virtual Class? IdClassNavigation { get; set; }
         public virtual Manager? IdManagerNavigation { get; set; }

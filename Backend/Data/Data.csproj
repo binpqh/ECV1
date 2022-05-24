@@ -16,12 +16,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\EC.V1\EC.V1.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
     <Folder Include="Tables\" />
-    <Folder Include="Types\" />
   </ItemGroup>
 
 </Project>

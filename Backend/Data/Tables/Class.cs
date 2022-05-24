@@ -1,28 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using Data.Defined.Enum;
 
 namespace Data.Tables
 {
     public partial class Class
     {
-        public Class()
-        {
-            Students = new HashSet<Student>();
-            Teachers = new HashSet<Teacher>();
-            IdWeekdays = new HashSet<Weekday>();
-        }
 
         public int Id { get; set; }
         public string? Classname { get; set; }
-        public DateTime? StartTime { get; set; }
-        public DateTime? EndTime { get; set; }
+        public string? StartTime { get; set; }
+        public string? EndTime { get; set; }
         public string? LinkGgmeet { get; set; }
         public int IdCourse { get; set; }
+        public Status Status { get; set; }
 
         public virtual Course IdCourseNavigation { get; set; } = null!;
-        public virtual ICollection<Student> Students { get; set; }
-        public virtual ICollection<Teacher> Teachers { get; set; }
-
-        public virtual ICollection<Weekday> IdWeekdays { get; set; }
+        public virtual List<Student>? Students { get; set; }
+        public virtual List<Teacher>? Teachers { get; set; }
+        public virtual List<Weekday>? IdWeekdays { get; set; } // many-many ClasDay
     }
 }

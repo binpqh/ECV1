@@ -11,7 +11,6 @@ namespace Data
         public ECV1DevContext()
         {
         }
-
         public ECV1DevContext(DbContextOptions<ECV1DevContext> options)
             : base(options)
         {
@@ -57,11 +56,8 @@ namespace Data
             {
                 entity.ToTable("Class");
 
-                entity.Property(e => e.EndTime).HasColumnType("datetime");
-
                 entity.Property(e => e.LinkGgmeet).HasColumnName("LinkGGMeet");
 
-                entity.Property(e => e.StartTime).HasColumnType("datetime");
 
                 entity.HasOne(d => d.IdCourseNavigation)
                     .WithMany(p => p.Classes)
@@ -86,10 +82,6 @@ namespace Data
             modelBuilder.Entity<Course>(entity =>
             {
                 entity.ToTable("Course");
-
-                entity.Property(e => e.DayEnd).HasColumnType("date");
-
-                entity.Property(e => e.DayStart).HasColumnType("date");
 
                 entity.Property(e => e.Level).HasMaxLength(20);
 
@@ -209,5 +201,11 @@ namespace Data
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
+
+        private static DbContextOptions GetOptions(string connectionString)
+        {
+            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString)
+                .Options;
+        }
     }
 }

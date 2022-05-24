@@ -7,5 +7,6 @@ namespace Data.Tables
     {
         public int Id { get; set; }
         public double? Point1 { get; set; }
+        public int Status { get; set; }
     }
 }
