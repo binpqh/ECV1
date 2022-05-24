@@ -1,4 +1,5 @@
 ﻿using Data.Defined.Enum;
+using System.Collections.Generic;
 
 namespace Data.Tables
 {
