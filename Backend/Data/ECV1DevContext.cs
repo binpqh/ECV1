@@ -25,6 +25,7 @@ namespace Data
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
         public virtual DbSet<Transcript> Transcripts { get; set; } = null!;
         public virtual DbSet<Weekday> Weekdays { get; set; } = null!;
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
