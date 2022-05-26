@@ -25,7 +25,7 @@ namespace Data.Services
         {
             _configuration = configuration;
             _context = context;
-            _securityKey = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
+            _securityKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]));
         }
 
         public async Task<AuthTypeResult> GenerateToken(GenerateRefreshTokenInput generateRefreshTokenInput)
@@ -53,7 +53,9 @@ namespace Data.Services
             // Create the JWT security token and encode it.
             var token = jwtTokenHandler.CreateToken(tokenDescription);
             var jwtToken = jwtTokenHandler.WriteToken(token);
-
+            var user = await _context.Accounts
+                .Where(e => e.Uid == generateRefreshTokenInput.UserId)
+                .FirstOrDefaultAsync();
 
             //Create Refresh Token
             var refreshToken = new RefreshToken()
@@ -61,16 +63,18 @@ namespace Data.Services
                 IpAddress = generateRefreshTokenInput.IpAddress,
                 JwtTokenId = token.Id,
                 RefreshTokenString = RandomString(25) + Guid.NewGuid(),
-                UserId = generateRefreshTokenInput.UserId
+                UserId = generateRefreshTokenInput.UserId,
             };
-
             await _context.RefreshTokens.AddAsync(refreshToken);
             await _context.SaveChangesAsync();
+            //Get current user role
+            var roleuser = await _context.Accounts.Where(e => e.Uid == generateRefreshTokenInput.UserId).FirstOrDefaultAsync();
 
             return new AuthTypeResult()
             {
                 token = jwtToken,
-                Success = true
+                Success = true,
+                Role = roleuser.Role
             };
         }
 
@@ -101,13 +105,13 @@ namespace Data.Services
             // Create the JWT security token and encode it.
             var jwtToken = jwtTokenHandler.CreateToken(tokenDescription);
             var accessToken = jwtTokenHandler.WriteToken(jwtToken);
-
             verifyToken.TokenStored.JwtTokenId = jwtToken.Id;
             await _context.SaveChangesAsync();
             return new AuthTypeResult()
             {
                 Success = true,
-                token = accessToken
+                token = accessToken,
+                Role = verifyToken.Role,
             };
         }
 
@@ -121,10 +125,9 @@ namespace Data.Services
 
             // Check ip v4
             if (storedRefreshToken.IpAddress != ipV4) throw new Exception("Token is invalid");
-
+            var check = storedRefreshToken.IdAccountNavigation;
             var user = await _context.Accounts.FirstOrDefaultAsync(x =>
-                x.Id == int.Parse(storedRefreshToken.UserId));
-
+                x.Uid == storedRefreshToken.UserId.Replace(" ",""));
             if (user == null) throw new Exception("Token is invalid");
 
             return new VerifyTokenResult()
@@ -132,14 +135,15 @@ namespace Data.Services
                 Username = tokenReader.Claims.FirstOrDefault(x => x.Type == JwtRegisteredClaimNames.UniqueName)?.Value,
                 IpAddress = ipV4,
                 UserId = storedRefreshToken.UserId,
-                TokenStored = storedRefreshToken
+                TokenStored = storedRefreshToken,
+                Role = user.Role,
             };
         }
 
         private static string RandomString(int length)
         {
             var random = new Random();
-            const string chars = "PHAMQUOCHUNG1911065579";
+            const string chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }

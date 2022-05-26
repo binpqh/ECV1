@@ -1,5 +1,6 @@
 ﻿using Data.Interface;
 using Data.Types;
+using Data.Utils;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -118,7 +119,7 @@ namespace Data.Services
             {
                 throw new Exception("Người dùng không tồn tại");
             }
-            if(acc.Password != input.Password)
+            if(acc.Password.Replace(" ", "") != input.Password)
             {
                 throw new Exception("Mật khẩu không đúng");
             }
@@ -126,7 +127,8 @@ namespace Data.Services
             {
                 Username = input.Username,
                 IpAddress = input.IpAddress,
-                UserId = acc.Uid
+                UserId = acc.Uid.ToString(),
+
             });
             return token;
         }

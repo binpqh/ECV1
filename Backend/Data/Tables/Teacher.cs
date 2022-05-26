@@ -18,6 +18,8 @@ namespace Data.Tables
         public string? Phone { get; set; }
         public Status Status { get; set; }
 
+
+
         public virtual Class? ClasskeyNavigation { get; set; }
         public virtual Account? IdAccountNavigation { get; set; }
         public static void Seed(ModelBuilder modelBuilder)

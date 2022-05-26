@@ -35,14 +35,14 @@ namespace Data.Tables
                     new Account
                     {
                         Id = 3,
-                        Uid = "admin",
+                        Uid = "teacher",
                         Password = "123",
                         Role = RoleEnum.Teacher
                     },
                     new Account
                     {
                         Id = 4,
-                        Uid = "admin",
+                        Uid = "student",
                         Password = "123",
                         Role = RoleEnum.Student
                     }

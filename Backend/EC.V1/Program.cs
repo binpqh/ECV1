@@ -1,4 +1,5 @@
 using EC.V1.Configure;
+using EC.V1.Middleware;
 
 var builder = WebApplication.CreateBuilder(args);
 var configuration = builder.Configuration;
@@ -11,6 +12,8 @@ builder.Services.AddSwaggerGen();
 builder.Services.ConfigSwagger();
 builder.Services.ConfigureControllers();
 builder.Services.ConfigureDatabase(configuration);
+builder.Services.ConfigureCors();
+builder.Services.ConfigAccount(configuration);
 ///
 
 var app = builder.Build();
@@ -23,7 +26,11 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseRouting();
+app.UseCors("CorsPolicy");
+app.UseAuthentication();
 app.UseAuthorization();
+app.UseMiddleware<AuthMiddleware>();
+app.UseResponseParser();
 app.ConfigureErrorResponse();
 app.MapControllers();
 

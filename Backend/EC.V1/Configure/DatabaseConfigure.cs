@@ -12,6 +12,8 @@ namespace EC.V1.Configure
 
             services.AddScoped<ICourseService, CourseService>();
             services.AddScoped<IClassService, ClassService>();
+            services.AddScoped<IAutheService, AuthService>();
+            services.AddScoped<ITokenService, TokenService>();
         }
     }
 }

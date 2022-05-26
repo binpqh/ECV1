@@ -1,8 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using Data.Tables;
+﻿using Data.Tables;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Data
 {
