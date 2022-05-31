@@ -5,6 +5,10 @@ namespace Data.Tables
 {
     public partial class Course
     {
+        public Course()
+        {
+            Classes = new HashSet<Class>();
+        }
 
         public int Id { get; set; }
         public string? Coursename { get; set; }
@@ -14,6 +18,6 @@ namespace Data.Tables
         public string? Level { get; set; }
         public int Status { get; set; }
 
-        public virtual List<Class>? Classes { get; set; } // FK Class-Course
+        public virtual ICollection<Class> Classes { get; set; }
     }
 }

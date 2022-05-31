@@ -1,10 +1,16 @@
-﻿using Data.Defined.Enum;
+﻿using System;
 using System.Collections.Generic;
 
 namespace Data.Tables
 {
     public partial class Class
     {
+        public Class()
+        {
+            Classdays = new HashSet<Classday>();
+            Students = new HashSet<Student>();
+            Teachers = new HashSet<Teacher>();
+        }
 
         public int Id { get; set; }
         public string? Classname { get; set; }
@@ -12,11 +18,11 @@ namespace Data.Tables
         public string? EndTime { get; set; }
         public string? LinkGgmeet { get; set; }
         public int IdCourse { get; set; }
-        public Status Status { get; set; }
+        public int Status { get; set; }
 
         public virtual Course IdCourseNavigation { get; set; } = null!;
-        public virtual List<Student>? Students { get; set; }
-        public virtual List<Teacher>? Teachers { get; set; }
-        public virtual List<Weekday>? IdWeekdays { get; set; } // many-many ClasDay
+        public virtual ICollection<Classday> Classdays { get; set; }
+        public virtual ICollection<Student> Students { get; set; }
+        public virtual ICollection<Teacher> Teachers { get; set; }
     }
 }

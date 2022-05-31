@@ -9,5 +9,6 @@ namespace Data.Interface
         Task<ClassResult> CreateAsync(ClassInput create);
         Task<ClassResult> UpdateAsync(int id,ClassInput update);
         Task DeleteAsync(int id);
+
     }
 }

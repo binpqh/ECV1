@@ -1,5 +1,8 @@
-﻿using Data.Tables;
+﻿using System;
+using System.Collections.Generic;
+using Data.Tables;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata;
 
 namespace Data
 {
@@ -8,6 +11,7 @@ namespace Data
         public ECV1DevContext()
         {
         }
+
         public ECV1DevContext(DbContextOptions<ECV1DevContext> options)
             : base(options)
         {
@@ -15,19 +19,20 @@ namespace Data
 
         public virtual DbSet<Account> Accounts { get; set; } = null!;
         public virtual DbSet<Class> Classes { get; set; } = null!;
+        public virtual DbSet<Classday> Classdays { get; set; } = null!;
         public virtual DbSet<Course> Courses { get; set; } = null!;
         public virtual DbSet<Manager> Managers { get; set; } = null!;
         public virtual DbSet<Point> Points { get; set; } = null!;
+        public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
         public virtual DbSet<Transcript> Transcripts { get; set; } = null!;
-        public virtual DbSet<Weekday> Weekdays { get; set; } = null!;
-        public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
             if (!optionsBuilder.IsConfigured)
             {
+#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=EC.V1.Dev;Trusted_Connection=True;");
             }
         }
@@ -54,27 +59,25 @@ namespace Data
             {
                 entity.ToTable("Class");
 
-                entity.Property(e => e.LinkGgmeet).HasColumnName("LinkGGMeet");
+                entity.HasIndex(e => e.IdCourse, "IX_Class_IdCourse");
 
+                entity.Property(e => e.LinkGgmeet).HasColumnName("LinkGGMeet");
 
                 entity.HasOne(d => d.IdCourseNavigation)
                     .WithMany(p => p.Classes)
                     .HasForeignKey(d => d.IdCourse)
                     .OnDelete(DeleteBehavior.ClientSetNull)
                     .HasConstraintName("FK_Class_Course");
+            });
 
-                entity.HasMany(d => d.IdWeekdays)
-                    .WithMany(p => p.IdClasses)
-                    .UsingEntity<Dictionary<string, object>>(
-                        "ClassDay",
-                        l => l.HasOne<Weekday>().WithMany().HasForeignKey("IdWeekday").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_ClassDay_Weekday"),
-                        r => r.HasOne<Class>().WithMany().HasForeignKey("IdClass").OnDelete(DeleteBehavior.ClientSetNull).HasConstraintName("FK_ClassDay_Class"),
-                        j =>
-                        {
-                            j.HasKey("IdClass", "IdWeekday");
+            modelBuilder.Entity<Classday>(entity =>
+            {
+                entity.ToTable("Classday");
 
-                            j.ToTable("ClassDay");
-                        });
+                entity.HasOne(d => d.ClassNavigation)
+                    .WithMany(p => p.Classdays)
+                    .HasForeignKey(d => d.Class)
+                    .HasConstraintName("FK_Class_Classday");
             });
 
             modelBuilder.Entity<Course>(entity =>
@@ -90,7 +93,7 @@ namespace Data
             {
                 entity.ToTable("Manager");
 
-                entity.Property(e => e.Birthday).HasColumnType("date");
+                entity.HasIndex(e => e.IdAccount, "IX_Manager_IdAccount");
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(10)
@@ -110,11 +113,22 @@ namespace Data
                 entity.Property(e => e.Point1).HasColumnName("Point");
             });
 
+            modelBuilder.Entity<RefreshToken>(entity =>
+            {
+                entity.HasIndex(e => e.IdAccountNavigationId, "IX_RefreshTokens_IdAccountNavigationId");
+
+                entity.HasOne(d => d.IdAccountNavigation)
+                    .WithMany(p => p.RefreshTokens)
+                    .HasForeignKey(d => d.IdAccountNavigationId);
+            });
+
             modelBuilder.Entity<Student>(entity =>
             {
                 entity.ToTable("Student");
 
-                entity.Property(e => e.Birthday).HasColumnType("date");
+                entity.HasIndex(e => e.Classkey, "IX_Student_Classkey");
+
+                entity.HasIndex(e => e.IdAccount, "IX_Student_IdAccount");
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(10)
@@ -136,7 +150,9 @@ namespace Data
             {
                 entity.ToTable("Teacher");
 
-                entity.Property(e => e.Birthday).HasColumnType("date");
+                entity.HasIndex(e => e.Classkey, "IX_Teacher_Classkey");
+
+                entity.HasIndex(e => e.IdAccount, "IX_Teacher_IdAccount");
 
                 entity.Property(e => e.Phone)
                     .HasMaxLength(10)
@@ -159,6 +175,16 @@ namespace Data
                 entity.HasNoKey();
 
                 entity.ToTable("Transcript");
+
+                entity.HasIndex(e => e.IdClass, "IX_Transcript_IdClass");
+
+                entity.HasIndex(e => e.IdManager, "IX_Transcript_IdManager");
+
+                entity.HasIndex(e => e.IdPoint, "IX_Transcript_IdPoint");
+
+                entity.HasIndex(e => e.IdStudent, "IX_Transcript_IdStudent");
+
+                entity.HasIndex(e => e.IdTeacher, "IX_Transcript_IdTeacher");
 
                 entity.Property(e => e.Id).ValueGeneratedOnAdd();
 
@@ -188,22 +214,9 @@ namespace Data
                     .HasConstraintName("FK_Transcript_Teacher");
             });
 
-            modelBuilder.Entity<Weekday>(entity =>
-            {
-                entity.ToTable("Weekday");
-
-                entity.Property(e => e.Name).HasMaxLength(50);
-            });
-
             OnModelCreatingPartial(modelBuilder);
         }
 
         partial void OnModelCreatingPartial(ModelBuilder modelBuilder);
-
-        private static DbContextOptions GetOptions(string connectionString)
-        {
-            return SqlServerDbContextOptionsExtensions.UseSqlServer(new DbContextOptionsBuilder(), connectionString)
-                .Options;
-        }
     }
 }

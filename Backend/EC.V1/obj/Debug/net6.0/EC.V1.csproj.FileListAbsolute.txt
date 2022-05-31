@@ -5,12 +5,10 @@ E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\EC.V1.deps.json
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\EC.V1.runtimeconfig.json
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\EC.V1.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\EC.V1.pdb
-E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Humanizer.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.AspNetCore.Authentication.JwtBearer.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.Data.SqlClient.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Abstractions.dll
-E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Design.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.Relational.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.EntityFrameworkCore.SqlServer.dll
 E:\EC.V1.Dev\Backend\EC.V1\bin\Debug\net6.0\Microsoft.Extensions.Caching.Memory.dll

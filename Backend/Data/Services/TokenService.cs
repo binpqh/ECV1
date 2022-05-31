@@ -1,6 +1,5 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
-using Data.Tables;
 using Data.Types;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
@@ -15,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace Data.Services
 {
-    public class TokenService : ITokenService
+    /*public class TokenService : ITokenService
     {
         private readonly IConfiguration _configuration;
         private readonly ECV1DevContext _context;
@@ -110,7 +109,7 @@ namespace Data.Services
             return new AuthTypeResult()
             {
                 Success = true,
-                token = accessToken,
+                token = accessToken, 
                 Role = verifyToken.Role,
             };
         }
@@ -147,5 +146,5 @@ namespace Data.Services
             return new string(Enumerable.Repeat(chars, length)
                 .Select(s => s[random.Next(s.Length)]).ToArray());
         }
-    }
+    }*/
 }

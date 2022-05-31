@@ -1,6 +1,6 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
-using Data.Tables;
+
 using Data.Types;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace Data.Services;
-public class CourseService : ICourseService
+/*public class CourseService : ICourseService
 {
     private readonly ECV1DevContext _context;
     public CourseService(ECV1DevContext context)
@@ -110,5 +110,5 @@ public class CourseService : ICourseService
             Level = course.Level
         };
     }
-}
+}*/
 

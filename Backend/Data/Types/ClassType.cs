@@ -1,4 +1,4 @@
-﻿using Data.Tables;
+﻿using Data.Defined.Enum;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -15,7 +15,8 @@ namespace Data.Types
         public string? EndTime { get; set; }
         public string? LinkGGMeet { get; set; }
         public int IdCourse { get; set; }
-        public Course? Courses { get; set; }
+        //public ICollection<Classday>? Weekdays { get; set; }
+
 
     }
     public class ClassInput
@@ -25,5 +26,6 @@ namespace Data.Types
         public string? EndTime { get; set; }
         public string? LinkGGMeet { get; set; }
         public int IdCourse { get; set; }
+        //public ICollection<Classday>? Weekdays { get; set; }
     }
 }

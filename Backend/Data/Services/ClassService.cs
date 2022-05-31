@@ -1,12 +1,11 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
-using Data.Tables;
 using Data.Types;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Services
 {
-    public class ClassService : IClassService
+    /*public class ClassService : IClassService
     {
         private readonly ECV1DevContext _context;
         public ClassService(ECV1DevContext context)
@@ -14,7 +13,7 @@ namespace Data.Services
             _context = context;
         }
         public async Task<ClassResult> CreateAsync(ClassInput create)
-        {
+        {   
             var lophoc = new Class
             {
                 Classname = create.ClassName,
@@ -23,6 +22,7 @@ namespace Data.Services
                 Status = Status.Active,
                 LinkGgmeet = create.LinkGGMeet,
                 IdCourse = create.IdCourse,
+                Classdays = create.Weekdays
             };
             await _context.Classes.AddAsync(lophoc);
             await _context.SaveChangesAsync();
@@ -36,16 +36,7 @@ namespace Data.Services
                     EndTime = e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
                     IdCourse = e.IdCourse,
-                    Courses = new Course
-                    {
-                        Id = e.IdCourseNavigation.Id,
-                        Coursename = e.IdCourseNavigation.Coursename,
-                        DayStart = e.IdCourseNavigation.DayStart,
-                        DayEnd = e.IdCourseNavigation.DayEnd,
-                        Level = e.IdCourseNavigation.Level,
-                        Price = e.IdCourseNavigation.Price,
-                        Status = e.IdCourseNavigation.Status
-                    }
+                    Weekdays = e.Classdays
                 }).FirstAsync();
             return result;
         }
@@ -77,16 +68,7 @@ namespace Data.Services
                     EndTime =e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
                     IdCourse =e.IdCourse,
-                    Courses = new Course
-                    {
-                        Id = e.IdCourseNavigation.Id,
-                        Coursename = e.IdCourseNavigation.Coursename,
-                        DayStart = e.IdCourseNavigation.DayStart,
-                        DayEnd = e.IdCourseNavigation.DayEnd,
-                        Level = e.IdCourseNavigation.Level,
-                        Price = e.IdCourseNavigation.Price,
-                        Status = e.IdCourseNavigation.Status
-                    }
+                    Weekdays = e.Classdays
                 }
                 ).ToListAsync();
             return lophocs;
@@ -104,16 +86,7 @@ namespace Data.Services
                     EndTime = e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
                     IdCourse = e.IdCourse,
-                    Courses = new Course
-                    {
-                        Id = e.IdCourseNavigation.Id,
-                        Coursename = e.IdCourseNavigation.Coursename,
-                        DayStart = e.IdCourseNavigation.DayStart,
-                        DayEnd = e.IdCourseNavigation.DayEnd,
-                        Level = e.IdCourseNavigation.Level,
-                        Price = e.IdCourseNavigation.Price,
-                        Status = e.IdCourseNavigation.Status
-                    }
+                    Weekdays = e.Classdays
                 }).FirstAsync();
             if(lophoc == null)
             {
@@ -132,6 +105,7 @@ namespace Data.Services
                 lophoc.StartTime = update.StartTime ?? lophoc.StartTime;
                 lophoc.EndTime = update.EndTime ?? lophoc.EndTime;
                 lophoc.LinkGgmeet = update.LinkGGMeet ?? lophoc.LinkGgmeet;
+                lophoc.Classdays = update.Weekdays ?? lophoc.Classdays;
             }else
             {
                 throw new Exception("Không tìm thấy id");
@@ -145,17 +119,8 @@ namespace Data.Services
                 EndTime = lophoc.EndTime,
                 LinkGGMeet = lophoc.LinkGgmeet,
                 IdCourse = lophoc.IdCourse,
-                Courses = new Course
-                {
-                    Id = lophoc.IdCourseNavigation.Id,
-                    Coursename = lophoc.IdCourseNavigation.Coursename,
-                    DayStart = lophoc.IdCourseNavigation.DayStart,
-                    DayEnd = lophoc.IdCourseNavigation.DayEnd,
-                    Level = lophoc.IdCourseNavigation.Level,
-                    Price = lophoc.IdCourseNavigation.Price,
-                    Status = lophoc.IdCourseNavigation.Status
-                }
+                Weekdays = lophoc.Classdays
             };
         }
-    }
+    }*/
 }
