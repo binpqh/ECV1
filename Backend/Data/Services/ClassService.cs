@@ -1,11 +1,12 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
+using Data.Tables;
 using Data.Types;
 using Microsoft.EntityFrameworkCore;
 
 namespace Data.Services
 {
-    /*public class ClassService : IClassService
+    public class ClassService : IClassService
     {
         private readonly ECV1DevContext _context;
         public ClassService(ECV1DevContext context)
@@ -122,5 +123,5 @@ namespace Data.Services
                 Weekdays = lophoc.Classdays
             };
         }
-    }*/
+    }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Defined.Enum;
+using System;
 using System.Collections.Generic;
 
 namespace Data.Tables
@@ -14,7 +15,7 @@ namespace Data.Tables
         public int? Classkey { get; set; }
         public int? IdAccount { get; set; }
         public string? Phone { get; set; }
-        public int Status { get; set; }
+        public Status Status { get; set; }
 
         public virtual Class? ClasskeyNavigation { get; set; }
         public virtual Account? IdAccountNavigation { get; set; }

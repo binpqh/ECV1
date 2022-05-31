@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Data.Services
 {
-    /*public class AuthService : IAutheService
+    public class AuthService : IAutheService
     {
         private readonly ECV1DevContext _context;
         private readonly ITokenService _tokenService;
@@ -132,5 +132,5 @@ namespace Data.Services
             });
             return token;
         }
-    }*/
+    }
 }

@@ -1,10 +1,11 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
+using Data.Tables;
 using Data.Types;
 
 namespace Data.Services
 {
-    /*public class AccountService : IAccountService
+    public class AccountService : IAccountService
     {
         private readonly ECV1DevContext _context;
         public AccountService(ECV1DevContext context)
@@ -105,5 +106,5 @@ namespace Data.Services
                 Role = teacherAccount.Role
             };
         }
-    }*/
+    }
 }

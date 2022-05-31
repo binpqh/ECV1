@@ -1,4 +1,5 @@
 ﻿using Data.Defined.Enum;
+using Data.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,6 @@ namespace Data.Types
         public string? Username { get; set; }
         public string? IpAddress { get; set; }
         public RoleEnum Role { get; set; }
-        //public RefreshToken? TokenStored { get; set; }
+        public RefreshToken? TokenStored { get; set; }
     }
 }

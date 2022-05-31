@@ -1,4 +1,5 @@
 ﻿using Data.Defined.Enum;
+using Data.Tables;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,7 +20,7 @@ namespace Data.Types
         public string? Email { get; set; }
         public Status Status { get; set; }
 
-        //public virtual Account? IdAccountNavigation { get; set; }
+        public virtual Account? IdAccountNavigation { get; set; }
     }
     public class ManagerTypeInput
     {

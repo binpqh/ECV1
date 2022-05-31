@@ -1,5 +1,6 @@
 ﻿using Data.Defined.Enum;
 using Data.Interface;
+using Data.Tables;
 using Data.Types;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -10,7 +11,7 @@ using System.Threading.Tasks;
 
 namespace Data.Services
 {
-    /*public class TeacherService : ITeacherService
+    public class TeacherService : ITeacherService
     {
         private readonly ECV1DevContext _context;
         public TeacherService(ECV1DevContext context)
@@ -122,5 +123,5 @@ namespace Data.Services
                 Email = std.Email
             };
         }
-    }*/
+    }
 }

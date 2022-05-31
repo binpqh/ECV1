@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Defined.Enum;
+using System;
 using System.Collections.Generic;
 
 namespace Data.Tables
@@ -13,7 +14,7 @@ namespace Data.Tables
         public int? IdAccount { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
-        public int Status { get; set; }
+        public Status Status { get; set; }
 
         public virtual Account? IdAccountNavigation { get; set; }
     }
