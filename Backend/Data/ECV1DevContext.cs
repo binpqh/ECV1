@@ -25,6 +25,7 @@ namespace Data
         public virtual DbSet<Point> Points { get; set; } = null!;
         public virtual DbSet<RefreshToken> RefreshTokens { get; set; } = null!;
         public virtual DbSet<Student> Students { get; set; } = null!;
+        public virtual DbSet<StudentPoint> StudentPoints { get; set; } = null!;
         public virtual DbSet<Teacher> Teachers { get; set; } = null!;
         public virtual DbSet<Transcript> Transcripts { get; set; } = null!;
 
@@ -32,7 +33,6 @@ namespace Data
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see http://go.microsoft.com/fwlink/?LinkId=723263.
                 optionsBuilder.UseSqlServer("Server=localhost;Database=EC.V1.Dev;Trusted_Connection=True;");
             }
         }
@@ -110,6 +110,11 @@ namespace Data
             {
                 entity.ToTable("Point");
 
+                entity.Property(e => e.Point1)
+                    .HasMaxLength(2)
+                    .IsUnicode(false)
+                    .IsFixedLength();
+
                 entity.Property(e => e.Point1).HasColumnName("Point");
             });
 
@@ -146,6 +151,21 @@ namespace Data
                     .HasConstraintName("FK_Student_Account");
             });
 
+            modelBuilder.Entity<StudentPoint>(entity =>
+            {
+                entity.ToTable("StudentPoint");
+
+                entity.HasOne(d => d.IdPointNavigation)
+                    .WithMany(p => p.StudentPoints)
+                    .HasForeignKey(d => d.IdPoint)
+                    .HasConstraintName("FK_StudentPoint_Point");
+
+                entity.HasOne(d => d.IdTranscriptNavigation)
+                    .WithMany(p => p.StudentPoints)
+                    .HasForeignKey(d => d.IdTranscript)
+                    .HasConstraintName("FK_StudentPoint_Transcript");
+            });
+
             modelBuilder.Entity<Teacher>(entity =>
             {
                 entity.ToTable("Teacher");
@@ -172,8 +192,6 @@ namespace Data
 
             modelBuilder.Entity<Transcript>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("Transcript");
 
                 entity.HasIndex(e => e.IdClass, "IX_Transcript_IdClass");
@@ -186,30 +204,23 @@ namespace Data
 
                 entity.HasIndex(e => e.IdTeacher, "IX_Transcript_IdTeacher");
 
-                entity.Property(e => e.Id).ValueGeneratedOnAdd();
-
                 entity.HasOne(d => d.IdClassNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Transcripts)
                     .HasForeignKey(d => d.IdClass)
                     .HasConstraintName("FK_Transcript_Class");
 
                 entity.HasOne(d => d.IdManagerNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Transcripts)
                     .HasForeignKey(d => d.IdManager)
                     .HasConstraintName("FK_Transcript_Manager");
 
-                entity.HasOne(d => d.IdPointNavigation)
-                    .WithMany()
-                    .HasForeignKey(d => d.IdPoint)
-                    .HasConstraintName("FK_Transcript_Point");
-
                 entity.HasOne(d => d.IdStudentNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Transcripts)
                     .HasForeignKey(d => d.IdStudent)
                     .HasConstraintName("FK_Transcript_Student");
 
                 entity.HasOne(d => d.IdTeacherNavigation)
-                    .WithMany()
+                    .WithMany(p => p.Transcripts)
                     .HasForeignKey(d => d.IdTeacher)
                     .HasConstraintName("FK_Transcript_Teacher");
             });

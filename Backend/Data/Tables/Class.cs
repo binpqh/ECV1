@@ -11,6 +11,7 @@ namespace Data.Tables
             Classdays = new HashSet<Classday>();
             Students = new HashSet<Student>();
             Teachers = new HashSet<Teacher>();
+            Transcripts = new HashSet<Transcript>();
         }
 
         public int Id { get; set; }
@@ -25,5 +26,6 @@ namespace Data.Tables
         public virtual ICollection<Classday> Classdays { get; set; }
         public virtual ICollection<Student> Students { get; set; }
         public virtual ICollection<Teacher> Teachers { get; set; }
+        public virtual ICollection<Transcript> Transcripts { get; set; }
     }
 }

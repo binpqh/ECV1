@@ -1,4 +1,5 @@
-﻿using Data.Types;
+﻿using Data.Defined.Enum;
+using Data.Types;
 
 namespace Data.Interface
 {
@@ -9,6 +10,9 @@ namespace Data.Interface
         Task<ClassResult> CreateAsync(ClassInput create);
         Task<ClassResult> UpdateAsync(int id,ClassInput update);
         Task DeleteAsync(int id);
+        Task TimeTable(int idclass,TimeTableInput input);
+        Task<List<TimeTableTypeResult>> GetTimeTable(int idclass);
+        Task DeteleClassDay(int idclass, WeekdayEnum weekday);
 
     }
 }

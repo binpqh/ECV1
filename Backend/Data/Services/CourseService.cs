@@ -26,7 +26,7 @@ public class CourseService : ICourseService
             DayEnd = create.DayEnd,
             Level = create.Level,
             Price = create.Price,
-            Status = (int)Status.Active
+            Status = Status.Active
         };
         _context.Courses.Add(course);
         await _context.SaveChangesAsync();
@@ -43,17 +43,17 @@ public class CourseService : ICourseService
 
     public async Task DeleteAsync(int id)
     {
-        var course = _context.Courses.Where(e => e.Id == id && e.Status != 1).FirstOrDefault();
+        var course = _context.Courses.Where(e => e.Id == id && e.Status != Status.Deleted).FirstOrDefault();
         if (course != null)
         {
-            course.Status = 0;
+            course.Status = Status.Deleted;
         }
         await _context.SaveChangesAsync();
     }
 
     public async Task<List<CourseResult>> GetAllAsync()
     {
-        var courses = await _context.Courses.Where(e => e.Status ==1)
+        var courses = await _context.Courses.Where(e => e.Status ==Status.Active)
             .Select(e => new CourseResult
             {
                 Id = e.Id,
@@ -70,7 +70,7 @@ public class CourseService : ICourseService
 
     public async Task<CourseResult> GetbyIdAsync(int id)
     {
-        var course = await _context.Courses.Where(e => e.Id == id && e.Status == 1)
+        var course = await _context.Courses.Where(e => e.Id == id && e.Status == Status.Active)
             .Select(e => new CourseResult
             {
                 Id = e.Id,
@@ -89,7 +89,7 @@ public class CourseService : ICourseService
 
     public async Task<CourseResult> UpdateAsync(int id, CourseInput update)
     {
-        var course = await _context.Courses.Where(e => e.Id == id && e.Status == 1)
+        var course = await _context.Courses.Where(e => e.Id == id && e.Status == Status.Active)
             .FirstOrDefaultAsync();
         if(course != null)
         {

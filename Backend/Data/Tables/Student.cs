@@ -6,6 +6,11 @@ namespace Data.Tables
 {
     public partial class Student
     {
+        public Student()
+        {
+            Transcripts = new HashSet<Transcript>();
+        }
+
         public int Id { get; set; }
         public string? Name { get; set; }
         public int? Age { get; set; }
@@ -19,5 +24,6 @@ namespace Data.Tables
 
         public virtual Class? ClasskeyNavigation { get; set; }
         public virtual Account? IdAccountNavigation { get; set; }
+        public virtual ICollection<Transcript> Transcripts { get; set; }
     }
 }

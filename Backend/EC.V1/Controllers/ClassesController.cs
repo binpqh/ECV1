@@ -38,5 +38,6 @@ namespace EC.V1.Controllers
         {
             await _classService.DeleteAsync(id);
         }
+        
     }
 }

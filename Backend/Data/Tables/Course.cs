@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Data.Defined.Enum;
+using System;
 using System.Collections.Generic;
 
 namespace Data.Tables
@@ -16,7 +17,7 @@ namespace Data.Tables
         public string? DayEnd { get; set; }
         public decimal? Price { get; set; }
         public string? Level { get; set; }
-        public int Status { get; set; }
+        public Status Status { get; set; }
 
         public virtual ICollection<Class> Classes { get; set; }
     }

@@ -22,8 +22,7 @@ namespace Data.Services
                 EndTime = create.EndTime,
                 Status = Status.Active,
                 LinkGgmeet = create.LinkGGMeet,
-                IdCourse = create.IdCourse,
-                Classdays = create.Weekdays
+                IdCourse = create.IdCourse
             };
             await _context.Classes.AddAsync(lophoc);
             await _context.SaveChangesAsync();
@@ -36,8 +35,7 @@ namespace Data.Services
                     StartTime = e.StartTime,
                     EndTime = e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
-                    IdCourse = e.IdCourse,
-                    Weekdays = e.Classdays
+                    IdCourse = e.IdCourse
                 }).FirstAsync();
             return result;
         }
@@ -57,6 +55,22 @@ namespace Data.Services
             }    
         }
 
+        public async Task DeteleClassDay(int idclass, WeekdayEnum weekday)
+        {
+            var classday = await _context.Classdays
+                .Where(e => e.Class == idclass && e.Weekday == weekday)
+                .FirstOrDefaultAsync();
+            if(classday != null)
+            {
+                _context.Classdays.Remove(classday);
+                await _context.SaveChangesAsync();
+            }
+            else
+            {
+                throw new Exception("Không tìm thấy ngày học");
+            }    
+        }
+
         public async Task<List<ClassResult>> GetAllAsync()
         {
             var lophocs = await _context.Classes.Where(e => e.Status == Status.Active)
@@ -68,8 +82,7 @@ namespace Data.Services
                     StartTime=e.StartTime,
                     EndTime =e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
-                    IdCourse =e.IdCourse,
-                    Weekdays = e.Classdays
+                    IdCourse =e.IdCourse
                 }
                 ).ToListAsync();
             return lophocs;
@@ -87,13 +100,39 @@ namespace Data.Services
                     EndTime = e.EndTime,
                     LinkGGMeet = e.LinkGgmeet,
                     IdCourse = e.IdCourse,
-                    Weekdays = e.Classdays
                 }).FirstAsync();
             if(lophoc == null)
             {
                 throw new Exception("Không tìm thấy id");
             }
             return lophoc;
+        }
+
+        public async Task<List<TimeTableTypeResult>> GetTimeTable(int idclass)
+        {
+            var time = await _context.Classdays.Where(e => e.Class == idclass)
+                .Select(e => new TimeTableTypeResult
+                {
+                    IdClass = e.Class,
+                    weekday = e.Weekday
+                }).ToListAsync();
+            return time;
+        }
+
+        public async Task TimeTable(int idclass,TimeTableInput input)
+        {
+
+            var lophoc = await _context.Classes
+                .Where(e => e.Id == idclass && e.Status == Status.Active).FirstOrDefaultAsync();
+            if(lophoc != null)
+            {
+                var ngayhoc = new Classday
+                {
+                    Class = lophoc.Id,
+                    Weekday = input.weekday,
+                };
+            }    
+            
         }
 
         public async Task<ClassResult> UpdateAsync(int id, ClassInput update)
@@ -106,7 +145,6 @@ namespace Data.Services
                 lophoc.StartTime = update.StartTime ?? lophoc.StartTime;
                 lophoc.EndTime = update.EndTime ?? lophoc.EndTime;
                 lophoc.LinkGgmeet = update.LinkGGMeet ?? lophoc.LinkGgmeet;
-                lophoc.Classdays = update.Weekdays ?? lophoc.Classdays;
             }else
             {
                 throw new Exception("Không tìm thấy id");
@@ -119,8 +157,7 @@ namespace Data.Services
                 StartTime = lophoc.StartTime,
                 EndTime = lophoc.EndTime,
                 LinkGGMeet = lophoc.LinkGgmeet,
-                IdCourse = lophoc.IdCourse,
-                Weekdays = lophoc.Classdays
+                IdCourse = lophoc.IdCourse
             };
         }
     }

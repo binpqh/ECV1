@@ -6,6 +6,11 @@ namespace Data.Tables
 {
     public partial class Manager
     {
+        public Manager()
+        {
+            Transcripts = new HashSet<Transcript>();
+        }
+
         public int Id { get; set; }
         public string? Name { get; set; }
         public int? Age { get; set; }
@@ -17,5 +22,6 @@ namespace Data.Tables
         public Status Status { get; set; }
 
         public virtual Account? IdAccountNavigation { get; set; }
+        public virtual ICollection<Transcript> Transcripts { get; set; }
     }
 }
