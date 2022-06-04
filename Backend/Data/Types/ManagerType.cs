@@ -20,7 +20,6 @@ namespace Data.Types
         public string? Email { get; set; }
         public Status Status { get; set; }
 
-        public virtual Account? IdAccountNavigation { get; set; }
     }
     public class ManagerTypeInput
     {
@@ -30,5 +29,6 @@ namespace Data.Types
         public string? Address { get; set; }
         public string? Phone { get; set; }
         public string? Email { get; set; }
+        public int? IdAccount { get; set; }
     }
 }

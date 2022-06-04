@@ -108,9 +108,9 @@ namespace Data.Services
             return lophoc;
         }
 
-        public async Task<List<TimeTableTypeResult>> GetTimeTable(int idclass)
+        public async Task<List<TimeTableTypeResult>> GetTimeTable(int id)
         {
-            var time = await _context.Classdays.Where(e => e.Class == idclass)
+            var time = await _context.Classdays.Where(e => e.Class == id)
                 .Select(e => new TimeTableTypeResult
                 {
                     IdClass = e.Class,
@@ -119,20 +119,18 @@ namespace Data.Services
             return time;
         }
 
-        public async Task TimeTable(int idclass,TimeTableInput input)
+        public async Task TimeTable(int id,WeekdayEnum weekday)
         {
-
             var lophoc = await _context.Classes
-                .Where(e => e.Id == idclass && e.Status == Status.Active).FirstOrDefaultAsync();
+                .Where(e => e.Id == id && e.Status == Status.Active).FirstOrDefaultAsync();
             if(lophoc != null)
             {
                 var ngayhoc = new Classday
                 {
                     Class = lophoc.Id,
-                    Weekday = input.weekday,
+                    Weekday = weekday,
                 };
             }    
-            
         }
 
         public async Task<ClassResult> UpdateAsync(int id, ClassInput update)

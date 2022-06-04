@@ -49,7 +49,6 @@ E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.GeneratedMSBuildEditorConfig.e
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.AssemblyInfoInputs.cache
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.AssemblyInfo.cs
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.csproj.CoreCompileInputs.cache
-E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.MvcApplicationPartsAssemblyInfo.cs
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\EC.V1.MvcApplicationPartsAssemblyInfo.cache
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\staticwebassets.build.json
 E:\EC.V1.Dev\Backend\EC.V1\obj\Debug\net6.0\staticwebassets.development.json

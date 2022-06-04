@@ -74,7 +74,10 @@ namespace Data.Services
                 throw new Exception("Không tìm thấy bảng điểm");
             }
             trans.StatusPay = transcript.StatusPay ?? trans.StatusPay;
-            trans.StudentPoints
+            trans.IdClass = transcript.IdClass ?? trans.IdClass;
+            trans.IdManager = transcript.IdManager ?? trans.IdManager;
+            trans.IdTeacher = transcript.IdTeacher ?? trans.IdTeacher;
+            trans.IdStudent = transcript.IdStudent ?? trans.IdStudent;
             throw new NotImplementedException();
         }
     }

@@ -10,9 +10,9 @@ namespace Data.Interface
         Task<ClassResult> CreateAsync(ClassInput create);
         Task<ClassResult> UpdateAsync(int id,ClassInput update);
         Task DeleteAsync(int id);
-        Task TimeTable(int idclass,TimeTableInput input);
-        Task<List<TimeTableTypeResult>> GetTimeTable(int idclass);
-        Task DeteleClassDay(int idclass, WeekdayEnum weekday);
+        Task TimeTable(int id, WeekdayEnum weekday);
+        Task<List<TimeTableTypeResult>> GetTimeTable(int id);
+        Task DeteleClassDay(int id, WeekdayEnum weekday);
 
     }
 }

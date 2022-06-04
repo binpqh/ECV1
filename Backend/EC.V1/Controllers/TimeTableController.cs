@@ -17,19 +17,19 @@ namespace EC.V1.Controllers
         }
 
         [HttpPost("{id:int}")]
-        public async Task TimeTable(int idclass, TimeTableInput input)
+        public async Task TimeTable(int id, WeekdayEnum weekday)
         {
-            await _classService.TimeTable(idclass, input);
+            await _classService.TimeTable(id, weekday);
         }
         [HttpGet("{id:int}")]
-        public async Task<List<TimeTableTypeResult>> GetTimeTable(int idclass)
+        public async Task<List<TimeTableTypeResult>> GetTimeTable(int id)
         {
-            return await _classService.GetTimeTable(idclass);
+            return await _classService.GetTimeTable(id);
         }
         [HttpDelete("{id:int}")]
-        public async Task DeteleClassDay(int idclass, WeekdayEnum weekday)
+        public async Task DeteleClassDay(int id, WeekdayEnum weekday)
         {
-            await _classService.DeteleClassDay(idclass, weekday);
+            await _classService.DeteleClassDay(id, weekday);
         }
     }
 }

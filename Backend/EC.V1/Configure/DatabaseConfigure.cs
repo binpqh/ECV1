@@ -18,6 +18,8 @@ namespace EC.V1.Configure
             services.AddScoped<IManagerService, ManagerService>();
             services.AddScoped<ITeacherService, TeacherService>();
             services.AddScoped<IStudentService, StudentService>();
+            services.AddScoped<ITranscriptService,TranscriptService>();
+            services.AddScoped<IStudentPointService, StudentPointService>();
         }
     }
 }
