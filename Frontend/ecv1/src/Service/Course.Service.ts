@@ -1,6 +1,8 @@
 import axiosClient from "../API/AxiosClient"
 import { ICourseResult,ICourseInput } from "../Interfaces/ICourseService"
 
+
+
 export const GetCourseById = async(id : number) =>
 {
     return (await axiosClient.get<ICourseResult>(`/Course${id}`)).data;

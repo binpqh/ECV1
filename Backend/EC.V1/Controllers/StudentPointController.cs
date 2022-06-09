@@ -30,7 +30,7 @@ namespace EC.V1.Controllers
             await _studentPointService.DeleteStudentPoint(id);
         }
         [HttpGet]
-        public async Task<List<StudentPointTypeResult>> GetAllStudentPoint()
+        public async Task<List<StudentPointTypeResult>> GetAllStudentPoint()    
         {
             return await _studentPointService.GetAllStudentPoint();
         }

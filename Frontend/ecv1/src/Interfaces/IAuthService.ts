@@ -6,4 +6,5 @@ export interface ILoginInput {
   export interface ILoginResponse {
     token: string;
     status: boolean;
+    role: number;
   }

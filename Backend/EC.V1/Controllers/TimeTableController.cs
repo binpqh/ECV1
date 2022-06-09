@@ -27,7 +27,7 @@ namespace EC.V1.Controllers
             return await _classService.GetTimeTable(id);
         }
         [HttpDelete("{id:int}")]
-        public async Task DeteleClassDay(int id, WeekdayEnum weekday)
+        public async Task DeteleClassDay(int id, WeekdayEnum weekday)   
         {
             await _classService.DeteleClassDay(id, weekday);
         }
