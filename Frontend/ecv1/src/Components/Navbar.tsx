@@ -1,11 +1,4 @@
-/* eslint-disable react/jsx-no-comment-textnodes */
-import React, { useEffect } from 'react'
 import '../App.scss'
-import { toast } from 'react-toastify';
-import { ILoginInput } from '../Interfaces';
-import { useAppDispatch, useAppSelector } from '../app/hooks';
-import { isLogin, login } from '../Freature/authSlide';
-
 
 const Navbar:any = () => {
   return (
