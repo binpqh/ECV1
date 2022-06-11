@@ -1,21 +1,21 @@
 export interface IStudentInput
 {
-    Name : string;
-    Age : number;
-    Birthday : string;
-    Address : string;
-    Classkey : number;
-    IdAccount : number;
-    Phone : string;
+    name : string;
+    age : number;
+    birthday : string;
+    address : string;
+    classkey : number;
+    idAccount : number;
+    phone : string;
 }
 export interface IStudentResult
 {
-    Id : number;
-    Name : string;
-    Age : number;
-    Birthday : string;
-    Address : string;
-    Classkey : number;
-    IdAccount : number;
-    Phone : string;
+    id : number;
+    name : string;
+    age : number;
+    birthday : string;
+    address : string;
+    classkey : number;
+    idAccount : number;
+    phone : string;
 }

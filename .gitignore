@@ -58,3 +58,8 @@ msbuild.err
 msbuild.wrn
 Backend/.vs/EC.V1/v17/.suo
 Backend/.vs/EC.V1/v17/.suo
+Backend/EC.V1/obj/staticwebassets.pack.sentinel
+Backend/EC.V1/obj/Debug/net6.0/EC.V1.csproj.AssemblyReference.cache
+Backend/EC.V1/obj/Debug/net6.0/EC.V1.dll
+Backend/Data/bin/Debug/net6.0/Data.dll
+

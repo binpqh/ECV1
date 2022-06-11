@@ -10,7 +10,7 @@ async(
 ):Promise<IAccountResult> =>
 {
     return(await axiosClient.post<IAccountResult>
-        (`/RegisterManager?Uid=${account.Uid}&&Password=${account.Password}`,inforManager)).data;
+        (`/RegisterManager?Uid=${account.uid}&&Password=${account.password}`,inforManager)).data;
 };
 export const RegisterTeacher =
 async(
@@ -19,7 +19,7 @@ async(
 ):Promise<IAccountResult> =>
 {
     return(await axiosClient.post<IAccountResult>
-        (`/RegisterTeacher?Uid=${account.Uid}&&Password=${account.Password}`,inforTeacher)).data;
+        (`/RegisterTeacher?Uid=${account.uid}&&Password=${account.password}`,inforTeacher)).data;
 };
 export const RegisterStudent =
 async(
@@ -28,5 +28,5 @@ async(
 ):Promise<IAccountResult> =>
 {
     return(await axiosClient.post<IAccountResult>
-        (`/RegisterStudent?Uid=${account.Uid}&&Password=${account.Password}`,inforManager)).data;
+        (`/RegisterStudent?Uid=${account.uid}&&Password=${account.password}`,inforManager)).data;
 };

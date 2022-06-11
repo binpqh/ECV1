@@ -37,7 +37,7 @@ namespace EC.V1.Middleware
                     var statusCode = context.Response.StatusCode;
                     JsonSerializerOptions options = new JsonSerializerOptions
                     {
-                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase,
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase, //VC?L?????V clvclvclvclvcl aaaaaaa shiba alo chỉ em cái modalll nhỏ nhỏ
                     };
                     if (statusCode == 404)
                     {

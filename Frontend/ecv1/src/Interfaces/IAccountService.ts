@@ -1,12 +1,12 @@
 export interface IAccountInput
 {
-    Uid : string;
-    Password : string;
+    uid : string;
+    password : string;
 }
 export interface IAccountResult
 {
-    Id : number;
-    Uid : string;
-    Password : string;
-    Role : number;
+    id : number;
+    uid : string;
+    password : string;
+    role : number;
 }

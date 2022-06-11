@@ -1,11 +1,11 @@
 export interface IStudentPointResult
 {
-    Id:number;
-    IdTranscript:number;
-    IdPoint:number;
+    id:number;
+    idTranscript:number;
+    idPoint:number;
 }
 export interface IStudentPointInput
 {
-    IdTranscript:number;
-    IdPoint:number;
+    idTranscript:number;
+    idPoint:number;
 }

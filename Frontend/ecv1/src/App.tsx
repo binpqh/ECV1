@@ -4,21 +4,22 @@ import "./App.scss";
 import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Home from './Pages/Home';
 import { NotFound404 } from './Components/404NF';
+import { CourseRouter } from './Routers/Course.Router';
+import { ClassesRouter } from './Routers/Classes.Router';
 function App() {
+  
   return (
-    
-    <>
+
     <BrowserRouter>
-    <Navbar/>
+    <Navbar></Navbar>
     <Routes>
-      <Route path="/" element={<Home/>}>
+      <Route path="/" element={<Home/>}/>
       <Route path="*" element={<NotFound404 />} />
-      </Route>
+      <Route path="khoahoc/*" element = {<CourseRouter/>}/>
+      <Route path="lophoc/*" element = {<ClassesRouter/>}/>
     </Routes>
-    </BrowserRouter>
-    
-    
-  </>
+    </BrowserRouter>  
+
   );
 } 
 export default App;

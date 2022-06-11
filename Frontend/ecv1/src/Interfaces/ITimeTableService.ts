@@ -1,5 +1,5 @@
 export interface ITimeTableResult
 {
-    IdClass : number;
-    Weekday : number;
+    idClass : number;
+    weekday : number;
 }
