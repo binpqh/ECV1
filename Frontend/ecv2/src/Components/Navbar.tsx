@@ -1,4 +1,4 @@
-import '../App.scss'
+import '../App.css'
 
 const Navbar:any = () => {
   return (

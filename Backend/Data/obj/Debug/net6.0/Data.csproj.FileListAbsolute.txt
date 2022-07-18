@@ -12,3 +12,17 @@ E:\EC.V1.Dev\Backend\Data\obj\Debug\net6.0\refint\Data.dll
 E:\EC.V1.Dev\Backend\Data\obj\Debug\net6.0\Data.pdb
 E:\EC.V1.Dev\Backend\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache
 E:\EC.V1.Dev\Backend\Data\obj\Debug\net6.0\ref\Data.dll
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\bin\Debug\net6.0\Data.deps.json
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\bin\Debug\net6.0\Data.runtimeconfig.json
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\bin\Debug\net6.0\Data.dll
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\bin\Debug\net6.0\Data.pdb
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.csproj.AssemblyReference.cache
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.AssemblyInfoInputs.cache
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.AssemblyInfo.cs
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.csproj.CoreCompileInputs.cache
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.dll
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\refint\Data.dll
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.pdb
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\Data.genruntimeconfig.cache
+C:\Users\binpr\OneDrive\Desktop\ECV2\ECV1\Backend\Data\obj\Debug\net6.0\ref\Data.dll

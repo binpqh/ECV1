@@ -2114,19 +2114,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\ADMIN\\.nuget\\packages\\": {}
+    "C:\\Users\\binpr\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\EC.V1.Dev\\Backend\\EC.V1\\EC.V1.csproj",
+      "projectUniqueName": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\EC.V1\\EC.V1.csproj",
       "projectName": "EC.V1",
-      "projectPath": "E:\\EC.V1.Dev\\Backend\\EC.V1\\EC.V1.csproj",
-      "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-      "outputPath": "E:\\EC.V1.Dev\\Backend\\EC.V1\\obj\\",
+      "projectPath": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\EC.V1\\EC.V1.csproj",
+      "packagesPath": "C:\\Users\\binpr\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\EC.V1\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\binpr\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
@@ -2140,8 +2140,8 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "projectReferences": {
-            "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj": {
-              "projectPath": "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj"
+            "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj": {
+              "projectPath": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj"
             }
           }
         }
@@ -2195,7 +2195,7 @@
             "privateAssets": "all"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
       }
     }
   }

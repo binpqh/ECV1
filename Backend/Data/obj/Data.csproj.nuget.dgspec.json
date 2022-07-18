@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj": {}
+    "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj": {}
   },
   "projects": {
-    "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj": {
+    "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj",
+        "projectUniqueName": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj",
         "projectName": "Data",
-        "projectPath": "E:\\EC.V1.Dev\\Backend\\Data\\Data.csproj",
-        "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "E:\\EC.V1.Dev\\Backend\\Data\\obj\\",
+        "projectPath": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\Data.csproj",
+        "packagesPath": "C:\\Users\\binpr\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\binpr\\OneDrive\\Desktop\\ECV2\\ECV1\\Backend\\Data\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\ADMIN\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\binpr\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -76,7 +76,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
